@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>T-REX | Developer</title>
+
+    <!-- 🌐 Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins',sans-serif;
+            color: white;
+            text-align: center;
+        }
+
+        /* 🎥 Background Video */
+        #bgVideo {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        /* 🧑 Profile Photo */
+        #profile {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        /* 🔥 Zoom Effect */
+        #profile.active {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(3);
+            z-index: 10;
+            border: 4px solid white;
+        }
+
+        /* 📦 Boxes */
+        .box {
+            background: rgba(0, 0, 0, 0.7);
+            margin: 20px auto;
+            padding: 20px;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.6);
+        }
+
+        h2 {
+            color: #38bdf8;
+        }
+
+        a {
+            color: #22c55e;
+            text-decoration: none;
+        }
+
+        /* ⌨️ Typing Text */
+        #typing {
+            font-size: 28px;
+            color: #38bdf8;
+            margin-top: 80px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- 🎥 VIDEO BACKGROUND -->
+    <video autoplay muted loop id="bgVideo">
+        <source src="nature.mp4.mp4" type="video/mp4">
+    </video>
+
+    <!-- 🧑 PROFILE PHOTO -->
+    <img src="trex.mp4.jpeg" id="profile">
+
+    <!-- ⌨️ TYPING TEXT -->
+    <h1 id="typing"></h1>
+
+    <!-- 👨‍💻 ABOUT -->
+    <div class="box">
+        <h2>About Me</h2>
+        <p>I am T-REX, learning web development and building my future 🚀</p>
+    </div>
+
+    <!-- 🧠 SKILLS -->
+    <div class="box">
+        <h2>Skills</h2>
+        <p>HTML | CSS | JavaScript</p>
+    </div>
+
+    <!-- 📩 CONTACT -->
+    <div class="box">
+        <h2>Contact</h2>
+        <p>Email: 
+            <a href="mailto:t.rex779900@gmail.com">
+                t.rex779900@gmail.com
+            </a>
+        </p>
+    </div>
+
+    <!-- 🌐 SOCIAL -->
+    <div class="box">
+        <h2>Follow Me</h2>
+        <p>
+            <a href="https://instagram.com/t_rex_2032" target="_blank">Instagram</a>
+        </p>
+    </div>
+
+    <!-- ⚡ TYPING SCRIPT -->
+    <script>
+        let text = "👋 Hi, I'm T-REX | Future Developer 🚀";
+        let i = 0;
+
+        function typeEffect() {
+            if (i < text.length) {
+                document.getElementById("typing").innerHTML += text.charAt(i);
+                i++;
+                setTimeout(typeEffect, 50);
+            }
+        }
+        typeEffect();
+
+        // 🧑 PROFILE ZOOM
+        let profile = document.getElementById("profile");
+
+        profile.onclick = function() {
+            profile.classList.toggle("active");
+        }
+    </script>
+
+</body>
+</html>
